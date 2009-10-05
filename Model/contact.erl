@@ -1,0 +1,2 @@
+-module(contact, [Id, Name, Email, Number]).
+-compile(export_all).

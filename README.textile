@@ -1,0 +1,13 @@
+h1. Chicago Contacts
+
+Chicago Contacts is an example Chicago Boss web app to manage your contacts, feel free to dissect it and use it to learn Chicago Boss.
+
+h3. Steps to get running
+
+* cd {Path to app}
+* make
+
+* _In another terminal window or tab but still in the Chicago contacts dir_ ttserver contacts.tct
+* ./start-dev.sh
+
+Then visit the app at http://localhost:8001/ and play with the source!

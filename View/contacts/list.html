@@ -1,0 +1,28 @@
+<h1>Contacts <small style="font-size: 0.6em;"><a href="/contacts/create">New</a></small></h1>
+<h3>List</h3>
+{% if contacts %}
+    <p>You have {{ contacts|length }} contacts</p>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Number</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for contact in contacts %}
+				<tr>
+					<td>{{ contact.name }}</td>
+					<td>{{ contact.email }}</td>
+					<td>{{ contact.number }}</td>
+					<td><a href="/contacts/edit/{{ contact.id }}">Edit</a></td>
+					<td><a href="/contacts/delete/{{ contact.id }}">Delete</a></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% else %}
+    <p>You have no contacts.</p>
+{% endif %}
