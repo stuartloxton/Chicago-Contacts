@@ -1,5 +1,6 @@
-<h1>Contacts <small style="font-size: 0.6em;"><a href="/contacts/create">New</a> <a href="/contacts/list">List</a></small></h1>
-<h3>{{ title }}</h3>
+{% extends "layout.html" %}
+{% block content %}
+<h2>{{ title }}</h2>
 <form action="" method="post">
 	{% if errors %}
 		<p class="error">
@@ -8,8 +9,9 @@
 		{% endfor %}
 		</p>
 	{% endif %}
-	<p>Name: <input type="text" name="name" value="{{ contact.name }}" /></p>
-	<p>Email: <input type="text" name="email" value="{{ contact.email }}" /></p>
-	<p>Number: <input type="text" name="number" value="{{ contact.number }}" /></p>
+	<p><label for="name">Name:</label> <input type="text" name="name" value="{{ contact.name }}" /></p>
+	<p><label for="email">Email:</label> <input type="text" name="email" value="{{ contact.email }}" /></p>
+	<p><label for="number">Number:</label> <input type="text" name="number" value="{{ contact.number }}" /></p>
 	<p><input type="submit" value="Save &raquo;" /></p>
 </form>
+{% endblock %}

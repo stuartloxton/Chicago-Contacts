@@ -1,16 +1,19 @@
 -module(contacts_controller, [Req]).
 -compile(export_all).
 
-
 %%%
 % LIST Functions
 %%%
 list('GET', []) ->
-    list('GET', [1]);
+    list('GET', ["1"]);
 
 list('GET', [PageId]) ->
-	io:format("Results ~p~n", [boss_db:find(contact, [], 1)]),
-    {ok, [ {contacts, boss_db:find(contact, [], 100)} ]}.
+	list('GET', [PageId, "25"]);
+
+list('GET', [PageIdList, PerPageList]) ->
+	PageId = list_to_integer(PageIdList),
+	PerPage = list_to_integer(PerPageList),
+    {ok, [ {contacts, boss_db:find(contact, [], PerPage, PerPage * (PageId - 1))} ]}.
 
 
 
